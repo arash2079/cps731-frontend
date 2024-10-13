@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
+
 
 function HomePage() {
   return (
@@ -15,11 +17,11 @@ function HomePage() {
 
 const Header = () => (
   <header className="header">
-    <h1>Tutor Connect</h1>
-    <div className="header-buttons">
-      <button>Log In</button>
-      <button>Try for Free</button>
-    </div>
+        <h1>Tutor Connect</h1>
+        <div className="header-buttons">
+            <Link to="/login" className="button">Login</Link>
+            <Link to="/register" className="button">Try for Free</Link>
+        </div>
   </header>
 );
 
@@ -64,7 +66,7 @@ const CourseSearch = () => (
 
 const TutorList = () => (
   <div className="tutor-list">
-    <h3>Our Vetted List of Elite Tutors</h3>
+    <h3 className="tutor-list-title">Our Vetted List of Elite Tutors</h3>
     <div className="tutors">
       <TutorCard />
       <TutorCard />
@@ -75,13 +77,21 @@ const TutorList = () => (
 
 const TutorCard = () => (
   <div className="tutor-card">
-    <div className="profile-pic">
-        <img src='' alt="Profile Picture"/> 
+    <div className="profile-pic-container">
+    <img className="profile-pic" src="https://tutorax.com/wp-content/uploads/2021/11/Orthopedagogue-rencontre-orthopedagogie.jpg" alt="Profile Picture"/>
+        <div className="rating">
+            ⭐n/5
+        </div>
     </div>
-    <div className="rating">Rating</div>
+    
+    <h3 className="tutor-name">Tutor Name</h3> 
+    
+    <Link to="/login" className="take-course-button">
+      Take Course
+    </Link>
     <div className="details">
+      <span>Course Title</span>
       <span>Cost/hr</span>
-      <span>Education Qualification</span>
     </div>
   </div>
 );
